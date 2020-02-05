@@ -1,6 +1,6 @@
 {
   "name": "vue-dark-mode-switcher",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "a really simple dark mode switch",
   "main": "dist/vue-dark-mode-switcher.umd.js",
   "module": "dist/vue-dark-mode-switcher.esm.js",
@@ -22,6 +22,10 @@
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lotrekagency/vue-dark-mode-switcher"
+},
   "main": "index.js",
   "license": "MIT"
 }
