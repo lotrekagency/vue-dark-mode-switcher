@@ -5,6 +5,7 @@
   "main": "dist/vue-dark-mode-switcher.umd.js",
   "module": "dist/vue-dark-mode-switcher.esm.js",
   "unpkg": "dist/vue-dark-mode-switcher.min.js",
+  "core-js": "^3.6.4",
   "browser": {
     "./sfc": "src/vue-dark-mode-switcher.vue"
   },
@@ -12,20 +13,47 @@
     "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
     "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vue-dark-mode-switcher.umd.js",
     "build:es": "rollup --config build/rollup.config.js --format es --file dist/vue-dark-mode-switcher.esm.js",
-    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vue-dark-mode-switcher.min.js"
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vue-dark-mode-switcher.min.js",
+    "serve": "vue-cli-service serve",
+    "build:demo": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.2.0",
+    "@vue/cli-plugin-eslint": "^4.2.0",
+    "@vue/cli-service": "^4.2.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.1.2",
     "rollup": "^1.17.0",
     "rollup-plugin-buble": "^0.19.8",
     "rollup-plugin-commonjs": "^10.0.1",
     "rollup-plugin-vue": "^5.0.1",
+    "sass-loader": "^8.0.2",
     "vue": "^2.6.10",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.11"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/lotrekagency/vue-dark-mode-switcher"
-},
-  "main": "index.js",
-  "license": "MIT"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "license": "MIT",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
 }
