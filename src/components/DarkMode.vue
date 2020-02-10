@@ -46,7 +46,6 @@ export default {
   },
   watch: {
     darkMode: function(val) {
-      console.log("eseguo");
       this.switchColorScheme(val);
     }
   }
