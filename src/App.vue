@@ -71,7 +71,7 @@ body {
   font-family: 'Inconsolata', monospace;
 
   font-size: 18px;
-  
+  color: $dark;
   &.theme-dark {
     color: $light;
     .wrapper {
@@ -159,6 +159,7 @@ body {
         }
         .icon {
           margin-top: 5%;
+          margin-left: -50%;
           text-shadow: 0px 0px 50px #fdbb2d;
           font-size: 10rem;
         }
@@ -212,6 +213,7 @@ pre {
 h1 {
   text-align: center;
   font-size: 3rem;
+
 }
 
 .link{
