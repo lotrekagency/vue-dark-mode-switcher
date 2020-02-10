@@ -1,11 +1,12 @@
 {
   "name": "vue-dark-mode-switcher",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "description": "a really simple dark mode switch",
   "main": "dist/vue-dark-mode-switcher.umd.js",
   "module": "dist/vue-dark-mode-switcher.esm.js",
   "unpkg": "dist/vue-dark-mode-switcher.min.js",
   "core-js": "^3.6.4",
+  "homepage": "https://lotrekagency.github.io/vue-dark-mode-switcher/",
   "browser": {
     "./sfc": "src/vue-dark-mode-switcher.vue"
   },
