@@ -162,6 +162,10 @@ body {
           margin-left: -50%;
           text-shadow: 0px 0px 50px #fdbb2d;
           font-size: 10rem;
+          @media all and(max-width:640px) {
+            margin-top: 10%;
+            font-size: 5rem;
+          }
         }
       }
     }
