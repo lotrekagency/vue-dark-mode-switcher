@@ -15,6 +15,9 @@
       <div class="content">
         <img class="logo" alt="Vue logo" src="./assets/logo.png" />
         <h1>Vue Dark Mode Switcher</h1>
+        <br />
+        <p>v.{{packageJson.version}}</p>
+        <br>
         <DarkMode>
           <div slot="darkIcon">
             <button class="main-action">Dark</button>
@@ -23,13 +26,14 @@
             <button class="main-action">Light</button>
           </div>
         </DarkMode>
-
         <pre>
 
 yarn add vue-dark-mode-switcher
 
 npm install vue-dark-mode-switcher
         </pre>
+        <br>
+        <a class="link" :href="packageJson.repository.url" target="blank">Docs</a>
         <div class="buttons">
           <gh-btns-watch slug="lotrekagency/vue-dark-mode-switcher" show-count></gh-btns-watch>
           <gh-btns-star slug="lotrekagency/vue-dark-mode-switcher" show-count></gh-btns-star>
@@ -47,19 +51,29 @@ export default {
   name: "App",
   components: {
     DarkMode
+  },
+  data() {
+    return {
+      packageJson: require("../package.json")
+    };
   }
 };
 </script>
 
 <style lang="scss">
 @import url("https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css");
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap');
 @import url("https://fonts.googleapis.com/css?family=Cutive+Mono&display=swap");
 
+$dark : #06324d ;
+$light : #fdbb2d;
 body {
-  font-family: "Cutive Mono", monospace;
+  font-family: 'Inconsolata', monospace;
 
+  font-size: 18px;
+  
   &.theme-dark {
-    color: white;
+    color: $light;
     .wrapper {
       .canvas-container {
         &::before {
@@ -69,11 +83,14 @@ body {
     }
     .main-action,
     pre {
-      background: rgba($color: #000000, $alpha: 0.6);
-      color: #ffffff;
+      background: rgba($color: $dark, $alpha: 0.6);
+      color: $light;
     }
     .canvas {
       transform: rotate(180deg);
+    }
+    .link{
+      color: $light;
     }
   }
 }
@@ -86,9 +103,10 @@ body {
   flex-direction: column;
   min-height: 100vh;
   z-index: 1;
-
+  max-width: 100%;
   position: relative;
-
+  margin: 0;
+  overflow-x: hidden;
   .canvas-container {
     z-index: -1;
     position: fixed;
@@ -102,9 +120,9 @@ body {
       background: rgb(6, 50, 77);
       background: linear-gradient(
         180deg,
-        rgba(6, 50, 77, 1) 0%,
-        rgba(34, 193, 195, 1) 74%,
-        rgba(253, 187, 45, 1) 100%
+        #06324d 0%,
+        #22c1c3 74%,
+        #fdbb2d 100%
       );
 
       position: absolute;
@@ -142,7 +160,7 @@ body {
         .icon {
           margin-top: 5%;
           text-shadow: 0px 0px 50px #fdbb2d;
-          font-size: 6rem;
+          font-size: 10rem;
         }
       }
     }
@@ -151,7 +169,7 @@ body {
 
 pre {
   min-width: 0px;
-  background: rgba($color: #ffffff, $alpha: 0.6);
+  background: rgba($color: $light, $alpha: 0.6);
   padding: 1rem;
   border-radius: 0.5rem;
   margin-top: 1rem;
@@ -162,7 +180,7 @@ pre {
 .main-action {
   font-family: "Cutive Mono", monospace;
   margin-top: 0.25rem;
-  background: rgba($color: #ffffff, $alpha: 0.6);
+  background: rgba($color: $light, $alpha: 0.6);
   border: none;
   border-radius: 0.5rem;
   padding: 0.5rem;
@@ -194,5 +212,11 @@ pre {
 h1 {
   text-align: center;
   font-size: 3rem;
+}
+
+.link{
+  font-weight: bold;
+  text-decoration: none;
+  color: $dark;
 }
 </style>
