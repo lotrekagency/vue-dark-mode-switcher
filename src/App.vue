@@ -17,7 +17,8 @@
         <h1>Vue Dark Mode Switcher</h1>
         <br />
         <p>v.{{packageJson.version}}</p>
-        <br>
+        <vue-simple-markdown :source="fileContent"></vue-simple-markdown>
+        <br />
         <DarkMode>
           <div slot="darkIcon">
             <button class="main-action">Dark</button>
@@ -32,7 +33,7 @@ yarn add vue-dark-mode-switcher
 
 npm install vue-dark-mode-switcher
         </pre>
-        <br>
+        <br />
         <a class="link" :href="packageJson.repository.url" target="blank">Docs</a>
         <div class="buttons">
           <gh-btns-watch slug="lotrekagency/vue-dark-mode-switcher" show-count></gh-btns-watch>
@@ -54,21 +55,46 @@ export default {
   },
   data() {
     return {
-      packageJson: require("../package.json")
+      packageJson: require("../package.json"),
+      fileToRender: "https://raw.githubusercontent.com/lotrekagency/vue-dark-mode-switcher/master/README.md",
+      fileContent: null
     };
+  },
+  created: function(){
+    this.getContent();
+  },
+  methods: {
+    getContent() {
+      this.fileContent = "rendering ";
+      // var self;
+      this.$http.get(this.fileToRender).then(
+        response => {
+          // get body data
+
+          this.fileContent = response.body;
+          console.log(this.fileContent);
+        },
+        response => {
+          // error callback
+          console.log(response);
+          response = "An error ocurred"
+          this.fileContent =  response ;
+        }
+      );
+    }
   }
 };
 </script>
 
 <style lang="scss">
 @import url("https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css");
-@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Cutive+Mono&display=swap");
 
-$dark : #06324d ;
-$light : #fdbb2d;
+$dark: #06324d;
+$light: #fdbb2d;
 body {
-  font-family: 'Inconsolata', monospace;
+  font-family: "Inconsolata", monospace;
 
   font-size: 18px;
   color: $dark;
@@ -89,7 +115,7 @@ body {
     .canvas {
       transform: rotate(180deg);
     }
-    .link{
+    .link {
       color: $light;
     }
   }
@@ -217,10 +243,9 @@ pre {
 h1 {
   text-align: center;
   font-size: 3rem;
-
 }
 
-.link{
+.link {
   font-weight: bold;
   text-decoration: none;
   color: $dark;
