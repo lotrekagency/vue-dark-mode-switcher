@@ -1,5 +1,3 @@
-# 🌓 Vue Dark Mode Switcher
-
 ## 🎬Getting started
 
 ```
@@ -36,10 +34,10 @@ if you want to customize it
 
 ## 💅 Styling!
 You only have to create styles for **.theme-dark** class
-````
+```
 .theme-dark{
     background: black;
     color: white;
 }
-````
+```
 the class is added to body element.
