@@ -1,6 +1,6 @@
 {
   "name": "vue-dark-mode-switcher",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "a really simple dark mode switch",
   "scripts": {
     "serve": "vue-cli-service serve",
