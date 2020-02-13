@@ -349,7 +349,10 @@ footer {
 
 .markdown-body {
   color: $dark !important;
+  font-family: "Inconsolata", monospace !important;
+
   pre {
+    margin-top: 1rem !important;
     background: rgba($color: $dark, $alpha: 0.6) !important;
     color: $light;
   }
