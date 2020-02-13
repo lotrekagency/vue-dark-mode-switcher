@@ -1,9 +1,9 @@
-## 🎬Getting started
+## 🎬 Getting started
 ```
 yarn add vue-dark-mode-switcher
 npm install vue-dark-mode-switcher
 ```
-## 👨‍💻Usage
+## 👨‍💻 Usage
 If you love emoticons you can use base version with 🌞and 🌜
 ```
 import DarkMode from "vue-dark-mode-switcher";

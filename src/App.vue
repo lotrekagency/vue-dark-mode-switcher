@@ -213,7 +213,8 @@ body {
       background: linear-gradient(
         180deg,
         $dark 0%,
-        $light 100%
+        $light 50%,
+        $white 100%
       );
 
       position: absolute;
@@ -254,7 +255,7 @@ body {
           text-shadow: 0px 0px 50px $light;
           font-size: 10rem;
           @media all and(max-width:640px) {
-            margin-top: 10%;
+            margin-top: 20%;
             font-size: 5rem;
           }
         }
