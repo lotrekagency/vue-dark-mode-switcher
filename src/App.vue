@@ -114,13 +114,14 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Cutive+Mono&display=swap");
 
-$dark: #06324d;
-$light: #fac044;
+$dark: #34495E;
+$light: #41B883;
+$white: #ffffff;
 body {
   font-family: "Inconsolata", monospace;
   font-size: 18px;
   color: $dark;
-  background: $light;
+  background: $white;
   &.theme-dark {
     color: $light;
     background: $dark;
@@ -159,7 +160,7 @@ body {
     .markdown-body {
       color: $light !important;
       pre {
-        background: rgba($color: $light, $alpha: 0.6) !important;
+        background: $light !important;
         color: $dark;
       }
       h1,
@@ -208,12 +209,11 @@ body {
     &::before {
       content: "";
       z-index: -2;
-      background: rgb(6, 50, 77);
+      background: $dark;
       background: linear-gradient(
         180deg,
-        #06324d 0%,
-        #22c1c3 74%,
-        #fdbb2d 100%
+        $dark 0%,
+        $light 100%
       );
 
       position: absolute;
@@ -251,7 +251,7 @@ body {
         .icon {
           margin-top: 10%;
           margin-left: -50%;
-          text-shadow: 0px 0px 50px #fdbb2d;
+          text-shadow: 0px 0px 50px $light;
           font-size: 10rem;
           @media all and(max-width:640px) {
             margin-top: 10%;
@@ -353,7 +353,7 @@ footer {
 
   pre {
     margin-top: 1rem !important;
-    background: rgba($color: $dark, $alpha: 0.6) !important;
+    background: $dark !important;
     color: $light;
   }
   h1,
@@ -401,7 +401,7 @@ nav {
   z-index: 0;
 
   svg {
-    fill: $light;
+    fill: $white;
   }
 }
 
