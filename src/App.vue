@@ -4,14 +4,18 @@
       <div class="main-logo">
         <span>v.{{packageJson.version}}</span>
       </div>
-      <DarkMode>
-        <div slot="darkIcon">
-          <button class="main-action">Dark</button>
-        </div>
-        <div slot="lightIcon">
-          <button class="main-action">Light</button>
-        </div>
-      </DarkMode>
+      <div class="switch-button">
+        <b class="indicator">👉</b>
+
+        <DarkMode>
+          <div slot="darkIcon">
+            <button class="main-action">Dark</button>
+          </div>
+          <div slot="lightIcon">
+            <button class="main-action">Light</button>
+          </div>
+        </DarkMode>
+      </div>
     </nav>
     <header class="wrapper">
       <div class="canvas-container">
@@ -112,16 +116,15 @@ export default {
 <style lang="scss">
 @import url("https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css");
 @import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Cutive+Mono&display=swap");
 
-$dark: #34495E;
-$light: #41B883;
-$white: #ffffff;
+$dark: #34495e;
+$light: #41b883;
+$base: #ededed;
 body {
   font-family: "Inconsolata", monospace;
   font-size: 18px;
   color: $dark;
-  background: $white;
+  background: $base;
   &.theme-dark {
     color: $light;
     background: $dark;
@@ -145,7 +148,7 @@ body {
     }
     .main-action,
     pre {
-      background: rgba($color: $dark, $alpha: 0.6);
+      background: rgba($color: $dark, $alpha: 0.9);
       color: $light;
     }
     .canvas {
@@ -210,12 +213,7 @@ body {
       content: "";
       z-index: -2;
       background: $dark;
-      background: linear-gradient(
-        180deg,
-        $dark 0%,
-        $light 50%,
-        $white 100%
-      );
+      background: linear-gradient(180deg, $dark 0%, $light 50%, $base 100%);
 
       position: absolute;
       height: 200%;
@@ -250,7 +248,7 @@ body {
           transform: rotate(180deg);
         }
         .icon {
-          margin-top: 10%;
+          margin-top: 15%;
           margin-left: -50%;
           text-shadow: 0px 0px 50px $light;
           font-size: 10rem;
@@ -275,9 +273,9 @@ pre {
 }
 
 .main-action {
-  font-family: "Cutive Mono", monospace;
+  font-family: "Inconsolata", monospace;
   margin-top: 0.25rem;
-  background: rgba($color: $light, $alpha: 0.6);
+  background: rgba($color: $light, $alpha: 0.9);
   border: none;
   border-radius: 0.5rem;
   padding: 0.5rem;
@@ -397,12 +395,17 @@ nav {
 
 .city {
   position: absolute;
-  width: 100%;
+  width: 300%;
   bottom: -6px;
   z-index: 0;
-
+  @media screen and(min-width: 640px) {
+    width: 150%;
+  }
+  @media screen and(min-width: 1200px) {
+    width: 100%;
+  }
   svg {
-    fill: $white;
+    fill: $base;
   }
 }
 
@@ -410,8 +413,30 @@ nav {
   z-index: 0;
   z-index: -1;
   svg {
-    filter: drop-shadow(0 0 50px $dark);
+    filter: drop-shadow(0 0 50px $light);
     fill: $dark;
   }
+}
+
+.switch-button {
+  display: flex;
+  align-items: center;
+}
+
+@keyframes indicatorbounce {
+  0% {
+    transform: translateX(-0.5rem);
+  }
+  50% {
+    transform: translateX(0.5rem);
+  }
+  100% {
+    transform: translateX(-0.5rem);
+  }
+}
+
+.indicator {
+  font-size: 2rem;
+  animation: indicatorbounce 2.5s infinite;
 }
 </style>
