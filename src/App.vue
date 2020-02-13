@@ -394,7 +394,7 @@ nav {
 .city {
   position: absolute;
   width: 100%;
-  bottom: -3px;
+  bottom: -6px;
   z-index: 0;
 
   svg {
