@@ -2,7 +2,7 @@
   <div id="app">
     <nav>
       <div class="main-logo">
-         <span>v.{{packageJson.version}}</span>
+        <span>v.{{packageJson.version}}</span>
       </div>
       <DarkMode>
         <div slot="darkIcon">
@@ -37,11 +37,14 @@ npm install vue-dark-mode-switcher
         </pre>
         <br />
         <a class="link" :href="packageJson.repository.url" target="blank">
-        <GitHub/>
+          <GitHub />
         </a>
       </div>
-      <div class="mountains">
-        <Mountains/>
+      <div class="city">
+        <city />
+      </div>
+      <div class="city city-lights">
+        <cityLights />
       </div>
     </header>
     <main class="container">
@@ -60,13 +63,16 @@ npm install vue-dark-mode-switcher
 
 <script>
 import DarkMode from "./components/DarkMode";
-import Mountains from "./assets/city.svg";
-import GitHub from "./assets/github.svg"
+import city from "./assets/city.svg";
+import cityLights from "./assets/city_lights.svg";
+
+import GitHub from "./assets/github.svg";
 export default {
   name: "App",
   components: {
     DarkMode,
-    Mountains,
+    city,
+    cityLights,
     GitHub
   },
   data() {
@@ -109,13 +115,13 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Cutive+Mono&display=swap");
 
 $dark: #06324d;
-$light: #fdbb2d;
+$light: #fac044;
 body {
   font-family: "Inconsolata", monospace;
 
   font-size: 18px;
   color: $dark;
-  background:$light;
+  background: $light;
   &.theme-dark {
     color: $light;
     background: $dark;
@@ -125,9 +131,15 @@ body {
           top: 0%;
         }
       }
-      .mountains{
-        svg{
-          fill:$dark;
+      .city {
+        svg {
+          fill: $dark;
+        }
+      }
+      .city-lights {
+        svg {
+          filter: drop-shadow(0 0 50px $light);
+          fill: $light;
         }
       }
     }
@@ -141,14 +153,14 @@ body {
     }
     .link {
       color: $light;
-      svg{
-        fill:$light;
+      svg {
+        fill: $light;
       }
     }
     .markdown-body {
       color: $light !important;
       pre {
-        background: $light !important;
+        background: rgba($color: $light, $alpha: 0.6) !important;
         color: $dark;
       }
       h1,
@@ -157,7 +169,7 @@ body {
       h4,
       h5,
       h6 {
-        border-bottom: 1px solid $light;
+        border-bottom: 1px solid rgba($color: $light, $alpha: 0.2) !important;
       }
     }
     footer {
@@ -169,7 +181,7 @@ body {
         content: "🌜";
       }
     }
-    nav{
+    nav {
       background: rgba($dark, 30%);
     }
   }
@@ -284,13 +296,13 @@ pre {
   justify-content: center;
   flex-direction: column;
   padding: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .logo {
- 
-  align-items:center;
+  align-items: center;
   max-width: 4rem;
-  
 }
 
 .buttons {
@@ -311,9 +323,9 @@ pre {
   font-weight: bold;
   text-decoration: none;
   color: $light;
-  svg{
-    fill:$dark;
-    height:2rem;
+  svg {
+    fill: $dark;
+    height: 2rem;
     width: 2rem;
   }
 }
@@ -339,7 +351,7 @@ footer {
 .markdown-body {
   color: $dark !important;
   pre {
-    background: $dark !important;
+    background: rgba($color: $dark, $alpha: 0.6) !important;
     color: $light;
   }
   h1,
@@ -350,7 +362,7 @@ footer {
   h6 {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
-    border-bottom: 1px solid $dark !important;
+    border-bottom: 1px solid rgba($color: $dark, $alpha: 0.2) !important;
   }
 }
 nav {
@@ -369,24 +381,34 @@ nav {
 
 .main-logo {
   font-size: 2rem;
-   display:flex;
-   align-items:center;
-   span{
-     font-size:1.25rem;
-   }
+  display: flex;
+  align-items: center;
+  span {
+    font-size: 1.25rem;
+  }
   &::before {
-    margin-right:.5rem;
+    margin-right: 0.5rem;
     content: "🌞";
   }
 }
 
-.mountains {
-    position: absolute;
-    width: 110%;
-    bottom: -29px;
-    z-index: -1;
-    svg{
-      fill:$light;
-    }
+.city {
+  position: absolute;
+  width: 100%;
+  bottom: -3px;
+  z-index: 0;
+
+  svg {
+    fill: $light;
+  }
+}
+
+.city-lights {
+  z-index: 0;
+  z-index: -1;
+  svg {
+    filter: drop-shadow(0 0 50px $dark);
+    fill: $dark;
+  }
 }
 </style>
