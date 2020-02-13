@@ -118,7 +118,6 @@ $dark: #06324d;
 $light: #fac044;
 body {
   font-family: "Inconsolata", monospace;
-
   font-size: 18px;
   color: $dark;
   background: $light;
@@ -343,7 +342,7 @@ footer {
   display: flex;
 }
 .container {
-  padding: 2rem 1rem;
+  padding: 3rem 2rem 1rem;
   max-width: 800px;
   margin: 0 auto;
 }
